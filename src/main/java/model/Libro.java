@@ -1,0 +1,59 @@
+package main.java.model;
+
+public class Libro {
+    private String isbn;
+    private String titulo;
+    private int autorId;
+    private int añoPublicacion;
+    private int cantidadTotal;
+    private int cantidadDisponible;
+
+    public Libro(String isbn, String titulo, int autorId, int añoPublicacion, int cantidadTotal, int cantidadDisponible) {
+        this.isbn = isbn;
+        this.titulo = titulo;
+        this.autorId = autorId;
+        this.añoPublicacion = añoPublicacion;
+        this.cantidadTotal = cantidadTotal;
+        this.cantidadDisponible = cantidadDisponible;
+    }
+
+    public Libro() {}
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public int getAutorId() {
+        return autorId;
+    }
+
+    public int getAñoPublicacion() {
+        return añoPublicacion;
+    }
+
+    public int getCantidadTotal() {
+        return cantidadTotal;
+    }
+
+    public int getCantidadDisponible() {
+        return cantidadDisponible;
+    }
+
+    public void setCantidadDisponible(int cantidadDisponible) {
+        this.cantidadDisponible = cantidadDisponible;
+    }
+
+    @Override
+    public String toString() {
+        return "ISBN: " + isbn + "\n" +
+        ", Titulo: " + titulo + "\n" +
+        ", Autor ID: " + autorId + "\n" +
+        ", Año Publicacion: " + añoPublicacion + "\n" +
+        ", Cantidad Total: " + cantidadTotal + "\n" +
+        ", Cantidad Disponible: " + cantidadDisponible;
+    }
+}
