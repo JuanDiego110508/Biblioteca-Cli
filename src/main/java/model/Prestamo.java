@@ -13,11 +13,11 @@ public class Prestamo {
 
     public Prestamo() {}
 
-    public Prestamo(int id, String libroIsbn, int socioId, LocalDate fechaDevolucionPrevista, LocalDate fechaDevolucionReal, String estado) {
+    public Prestamo(int id, String libroIsbn, int socioId, LocalDate fechaPrestamo, LocalDate fechaDevolucionPrevista, LocalDate fechaDevolucionReal, String estado) {
         this.id = id;
         this.libroIsbn = libroIsbn;
         this.socioId = socioId;
-        this.fechaDevolucionPrevista = fechaDevolucionPrevista;
+        this.fechaPrestamo = fechaPrestamo;
         this.fechaDevolucionPrevista = fechaDevolucionPrevista;
         this.fechaDevolucionReal = fechaDevolucionReal;
         this.estado = estado;
@@ -28,7 +28,8 @@ public class Prestamo {
         this.socioId = socioId;
         this.fechaPrestamo = fechaPrestamo;
         this.fechaDevolucionPrevista = fechaDevolucionPrevista;
-        this.estado = "Prestado";
+        this.fechaDevolucionReal = null;
+        this.estado = "PRESTADO";
     }
 
     public int getId() {
