@@ -3,7 +3,6 @@ import main.java.db.Conexion;
 import main.java.model.Prestamo;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,6 +46,7 @@ public class PrestamoRepository {
                     resultSet.getInt("id"),
                     resultSet.getString("libro_isbn"),
                     resultSet.getInt("socio_id"),
+                    resultSet.getDate("fecha_prestamo").toLocalDate(),
                     resultSet.getDate("fecha_devolucion_prevista").toLocalDate(),
                     resultSet.getDate("fecha_devolucion_real") != null ? resultSet.getDate("fecha_devolucion_real").toLocalDate() : null,
                     resultSet.getString("estado")
@@ -72,6 +72,7 @@ public class PrestamoRepository {
                     resultSet.getInt("id"),
                     resultSet.getString("libro_isbn"),
                     resultSet.getInt("socio_id"),
+                    resultSet.getDate("fecha_prestamo").toLocalDate(),
                     resultSet.getDate("fecha_devolucion_prevista").toLocalDate(),
                     resultSet.getDate("fecha_devolucion_real") != null ? resultSet.getDate("fecha_devolucion_real").toLocalDate() : null,
                     resultSet.getString("estado")
@@ -113,6 +114,7 @@ public class PrestamoRepository {
                     resultSet.getInt("id"),
                     resultSet.getString("libro_isbn"),
                     resultSet.getInt("socio_id"),
+                    resultSet.getDate("fecha_prestamo").toLocalDate(),
                     resultSet.getDate("fecha_devolucion_prevista").toLocalDate(),
                     resultSet.getDate("fecha_devolucion_real") != null ? resultSet.getDate("fecha_devolucion_real").toLocalDate() : null,
                     resultSet.getString("estado")

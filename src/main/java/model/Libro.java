@@ -43,9 +43,22 @@ public class Libro {
         return cantidadDisponible;
     }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    public void setAutorId(int autorId) {
+        this.autorId = autorId;
+    }
+    public void setAñoPublicacion(int añoPublicacion) {
+        this.añoPublicacion = añoPublicacion;
+    }
+    public void setCantidadTotal(int cantidadTotal) {
+        this.cantidadTotal = cantidadTotal;
+    }
     public void setCantidadDisponible(int cantidadDisponible) {
         this.cantidadDisponible = cantidadDisponible;
     }
+
 
     @Override
     public String toString() {

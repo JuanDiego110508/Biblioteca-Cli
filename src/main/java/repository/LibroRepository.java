@@ -1,8 +1,5 @@
 package main.java.repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-
 import main.java.db.Conexion;
 import main.java.model.Libro;
 
@@ -102,4 +99,39 @@ public class LibroRepository {
             e.printStackTrace();
         }
     }
+
+    // Actualizar libros
+    public void actualizarLibro(Libro libro) {
+        String sql = "UPDATE libros SET titulo = ?, autor_id = ?, año_publicacion = ?, cantidad_total = ?, cantidad_disponible = ? WHERE isbn = ?";
+
+        try (Connection connection = Conexion.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, libro.getTitulo());
+            statement.setInt(2, libro.getAutorId());
+            statement.setInt(3, libro.getAñoPublicacion());
+            statement.setInt(4, libro.getCantidadTotal());
+            statement.setInt(5, libro.getCantidadDisponible());
+            statement.setString(6, libro.getIsbn());
+
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Eliminar Libros
+    public void eliminarLibro(String isbn) {
+    String sql = "DELETE FROM libros WHERE isbn = ?";
+
+    try (Connection connection = Conexion.getConnection();
+         PreparedStatement statement = connection.prepareStatement(sql)) {
+
+        statement.setString(1, isbn);
+        statement.executeUpdate();
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
 }

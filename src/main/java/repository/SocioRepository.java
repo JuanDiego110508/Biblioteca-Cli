@@ -2,7 +2,6 @@ package main.java.repository;
 
 import main.java.db.Conexion;
 import main.java.model.Socio;
-import java.sql.Connection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -102,4 +101,26 @@ public class SocioRepository {
             System.out.println("Error al actualizar socio: " + e.getMessage());
         }
     }
+
+    // Eliminar socio
+    public void eliminarSocio(int id) {
+    String sql = "DELETE FROM socios WHERE id = ?";
+
+    try {
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setInt(1, id);
+
+        int filas = preparedStatement.executeUpdate();
+
+        if (filas > 0) {
+            System.out.println("Socio eliminado correctamente.");
+        } else {
+            System.out.println("No existe ningún socio con ese ID.");
+        }
+
+    } catch (SQLException e) {
+        System.out.println("Error al eliminar socio: " + e.getMessage());
+    }
 }
+}
+
